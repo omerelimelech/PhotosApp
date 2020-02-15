@@ -129,6 +129,7 @@
 		27A7168C23F807E600602E52 /* PhotosApp */ = {
 			isa = PBXGroup;
 			children = (
+				27A7169C23F807E800602E52 /* Info.plist */,
 				27A716BE23F80D3100602E52 /* Helpers */,
 				27A7168D23F807E600602E52 /* AppDelegate.swift */,
 				27A7168F23F807E600602E52 /* ViewController.swift */,
@@ -160,7 +161,6 @@
 			children = (
 				27A7169923F807E800602E52 /* LaunchScreen.storyboard */,
 				27A7169423F807E600602E52 /* PhotosApp.xcdatamodeld */,
-				27A7169C23F807E800602E52 /* Info.plist */,
 				27A7169723F807E800602E52 /* Assets.xcassets */,
 			);
 			path = Helpers;

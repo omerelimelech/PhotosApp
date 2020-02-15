@@ -103,3 +103,6 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.gitignore.io/api/xcode,swift
+Podfile.lock
+PhotosApp.xcworkspace/contents.xcworkspacedata
+PhotosApp.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
