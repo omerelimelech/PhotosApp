@@ -45,11 +45,19 @@ class MainViewController: BaseViewController{
 
 // MARK: CollectionViewDelegate & DelegateFlowLayout
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfImagesInRow: CGFloat = 5.2
         let spacing = (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumLineSpacing
+        let edgeInset = collectionView.contentInset.right
         let height = collectionView.frame.height
-        let cellHeight = (height - (spacing! * CGFloat(Int(numberOfImagesInRow)))) / numberOfImagesInRow
+        
+        // calculation of collectionView height - spaces devided by number of items wanted from top to bottom.
+        let cellHeight = (height - (spacing! * CGFloat(Int(numberOfImagesInRow))) - (edgeInset * 4) ) / numberOfImagesInRow
         return CGSize(width: cellHeight, height: cellHeight)
     }
     

@@ -24,6 +24,12 @@ struct Constants {
     static let APIkey = "12055825-e70cbf6e70297050349021fe0"
     static let hitsKey = "hits"
     
+    struct ParameterKey{
+        static let key = "key"
+        static let query = "q"
+        static let page = "page"
+    }
+    
     // MARK: Big Image View Controller
     static let mainStoryboardId = "Main"
     static let bigViewControllerStoryboardId = "BigPhotoViewController"

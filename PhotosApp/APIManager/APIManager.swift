@@ -12,18 +12,14 @@ import Alamofire
 typealias completion = (_ result: Result<Any?>) -> Void
 typealias parameters = [String : Any]
 
-struct ParameterKey{
-    static let key = "key"
-    static let query = "q"
-    static let page = "page"
-}
+
 class APIManager : NSObject {
     
     static let shared = APIManager()
     
     func getByQuery(keyword: String, page: Int, completion: @escaping completion){
         let url = UrlManager.shared.url(endpoint: .base)
-        let params : [String: Any] = [ParameterKey.key: Constants.APIkey , ParameterKey.query: keyword, ParameterKey.page: page] 
+        let params : [String: Any] = [Constants.ParameterKey.key: Constants.APIkey ,Constants.ParameterKey.query: keyword, Constants.ParameterKey.page: page]
         self.request(withUrlString: url, method: .get, params: params,  completion: completion)
         
     }
