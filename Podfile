@@ -6,6 +6,10 @@ target 'PhotosApp' do
   use_frameworks!
 
   # Pods for PhotosApp
+  pod 'SwipeCellKit'
+  pod 'IQKeyboardManagerSwift'
+  pod 'Alamofire'
+  pod 'SVProgressHUD'
 
   target 'PhotosAppTests' do
     inherit! :search_paths
