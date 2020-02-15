@@ -1,5 +1,5 @@
 //
-//  CustomError.swift
+//  PhotosNavigation.swift
 //  PhotosApp
 //
 //  Created by Omer Elimelech on 20 Shevat 5780.
@@ -9,8 +9,6 @@
 import Foundation
 
 
-enum MyError: Error{
-    
-    case parsingError
-    case decodeError
+enum PhotosNaivgation: Navigation {
+    case bigPhotoPage(_ dataSource: PhotoCollectionViewDataSource, indexPath: IndexPath)
 }

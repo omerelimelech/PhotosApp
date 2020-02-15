@@ -21,9 +21,9 @@ class APIManager : NSObject {
     
     static let shared = APIManager()
     
-    func getByQuery(keyword: String, completion: @escaping completion){
+    func getByQuery(keyword: String, page: Int, completion: @escaping completion){
         let url = UrlManager.shared.url(endpoint: .base)
-        let params = [ParameterKey.key: Constants.APIkey , ParameterKey.query: keyword]
+        let params : [String: Any] = [ParameterKey.key: Constants.APIkey , ParameterKey.query: keyword, ParameterKey.page: page] 
         self.request(withUrlString: url, method: .get, params: params,  completion: completion)
         
     }

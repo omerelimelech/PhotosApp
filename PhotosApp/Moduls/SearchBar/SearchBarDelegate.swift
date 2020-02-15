@@ -1,5 +1,5 @@
 //
-//  CustomError.swift
+//  SearchBarDelegate.swift
 //  PhotosApp
 //
 //  Created by Omer Elimelech on 20 Shevat 5780.
@@ -8,9 +8,6 @@
 
 import Foundation
 
-
-enum MyError: Error{
-    
-    case parsingError
-    case decodeError
+protocol SearchBarDelegate {
+    func searchBar(_ searchBar: SearchBar, didEndEditingWithText text: String?)
 }

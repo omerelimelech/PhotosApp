@@ -1,5 +1,5 @@
 //
-//  CustomError.swift
+//  BaseModel.swift
 //  PhotosApp
 //
 //  Created by Omer Elimelech on 20 Shevat 5780.
@@ -9,8 +9,4 @@
 import Foundation
 
 
-enum MyError: Error{
-    
-    case parsingError
-    case decodeError
-}
+

@@ -10,6 +10,8 @@ target 'PhotosApp' do
   pod 'IQKeyboardManagerSwift'
   pod 'Alamofire'
   pod 'SVProgressHUD'
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'Kingfisher', '~> 5.0'
 
   target 'PhotosAppTests' do
     inherit! :search_paths
