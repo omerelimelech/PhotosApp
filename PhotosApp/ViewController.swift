@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        APIManager.shared.getByQuery { (result) in
+        APIManager.shared.getByQuery(keyword: "kitten") { (result) in
             switch result{
             case .success(let value):
                 print (value)
