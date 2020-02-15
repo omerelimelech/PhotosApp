@@ -28,11 +28,11 @@ class MainViewController: BaseViewController{
         super.viewDidLoad()
         
         collectionView.delegate = self
-        self.dataSource = PhotoCollectionViewDataSource(withHits: nil, reuseId: MainCollectionViewCell.reuseId)
+        self.dataSource = PhotoCollectionViewDataSource(withHits: nil, reuseId: MainCollectionViewCell.reuseId, cellType: .preview)
         collectionView.dataSource = dataSource
         searchBar.delegate = self
         collectionView.register(UINib(nibName: MainCollectionViewCell.reuseId, bundle: nil), forCellWithReuseIdentifier: MainCollectionViewCell.reuseId)
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: Constants.fotterReusableId)
+        collectionView.register(LoadingFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: Constants.fotterReusableId)
         self.presenter = MainPresenter(withDelegate: self)
         
     }
@@ -60,14 +60,17 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let dataSource = self.dataSource, let hits = dataSource.hits, let keyword = self.currentKeyword else {return}
+        let numberOfHitsInPage = 20
         if indexPath.item == hits.count - 2 {
-            self.presenter?.getByKeyword(keyword: keyword, page: (hits.count / 20) + 1)
+            self.presenter?.getByKeyword(keyword: keyword, page: (hits.count / numberOfHitsInPage) + 1)
             
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 50)
+        // do not show loading indicator if we don't have hits yet.
+        let height : CGFloat = self.dataSource?.hits?.count ?? 0 > 0 ? 50 : 0
+        return CGSize(width: collectionView.frame.width, height: height)
     }
     
 }

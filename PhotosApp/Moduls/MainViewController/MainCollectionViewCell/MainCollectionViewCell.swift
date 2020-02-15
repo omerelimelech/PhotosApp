@@ -27,6 +27,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     func setImage(withUrlString urlString: String) {
         guard let url = URL(string: urlString) else {return}
+        imageView.kf.indicatorType = .activity
         self.imageView.kf.setImage(with: url)
     }
 
